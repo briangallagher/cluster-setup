@@ -15,17 +15,17 @@ objects:
     labels:
       app: jenkins
       role: jenkins-slave
-    name: jenkins-nodejs4-agent
+    name: jenkins-nodejs6-agent
   data:
-    node4-template: |-
+    node6-template: |-
       <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
         <inheritFrom></inheritFrom>
-        <name>node4-slave</name>
+        <name>node6-slave</name>
         <privileged>false</privileged>
         <alwaysPullImage>false</alwaysPullImage>
         <instanceCap>2147483647</instanceCap>
         <idleMinutes>10</idleMinutes>
-        <label>nodejs4</label>
+        <label>nodejs6</label>
         <serviceAccount>jenkins</serviceAccount>
         <nodeSelector></nodeSelector>
         <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
@@ -35,7 +35,7 @@ objects:
         <containers>
           <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
             <name>jnlp</name>
-            <image>docker-registry.default.svc:5000/nr-jenkins/jenkins-slave-nodejs4-appdev</image>
+            <image>docker-registry.default.svc:5000/nr-jenkins/jenkins-slave-nodejs6-appdev</image>
             <privileged>false</privileged>
             <alwaysPullImage>false</alwaysPullImage>
             <workingDir>/tmp</workingDir>
