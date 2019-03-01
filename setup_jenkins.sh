@@ -24,5 +24,3 @@ oc new-app -f ./templates/jenkins-nodejs4-slave.yml -n nr-jenkins
 oc new-app -f ./templates/jenkins-nodejs6-slave.yml -n nr-jenkins
 oc new-app -f ./templates/jenkins-nodejs8-slave.yml -n nr-jenkins
 
-
-
