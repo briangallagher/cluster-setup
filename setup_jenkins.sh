@@ -23,21 +23,26 @@ oc new-app jenkins-persistent -p JENKINS_IMAGE_STREAM_TAG=custom-jenkins:latest 
 # v3.11 may not be compatible with jenkins version - may need to look at v3.9
 oc new-build --name=jenkins-slave-nodejs4-appdev -D $'FROM docker.io/openshift/jenkins-slave-nodejs-centos7:v3.11\nUSER root\nRUN yum -y install skopeo\nUSER 1001' -n nr-jenkins
 
+
+# openshift3/jenkins-agent-nodejs-8-rhel7
+# https://github.com/dudash/jenkins-slave-nodejs6
+	# dudash/jenkins-slave-nodejs6
+
+oc new-build --name=jenkins-slave-nodejs4-appdev -D $'FROM docker.io/openshift/jenkins-slave-nodejs-centos7:v3.11\nUSER root\nRUN yum -y install skopeo\nUSER 1001' -n nr-jenkins
+oc new-build --name=jenkins-slave-nodejs4-appdev -D $'FROM docker.io/openshift/jenkins-slave-nodejs-centos7:v3.11\nUSER root\nRUN yum -y install skopeo\nUSER 1001' -n nr-jenkins
+
+
 # Setup the Config Map for the node.js jenkins slave
 # TODO: change this <label>maven-appdev</label> in the template to be more node.js 
 oc new-app -f ./templates/jenkins-nodejs4-slave.yml -n nr-jenkins
+
 # TODO: Need another slave config for node.js 6
 
 
 
 
 
-
-
-
 # TODO: What about the plugins and config? 
-
-
 
 
 # Notes
@@ -48,10 +53,10 @@ oc new-app -f ./templates/jenkins-nodejs4-slave.yml -n nr-jenkins
 # oc cp <podName><path> <dest>
 
 
-
-
 # Jenkins Slave images
 # https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/openshift3/jenkins-agent-nodejs-8-rhel7
 # https://access.redhat.com/containers/?tab=tech-details#/registry.access.redhat.com/openshift3/jenkins-slave-nodejs-rhel7
 # https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/openshift3/jenkins-slave-base-rhel7
 # https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/openshift3/jenkins-agent-nodejs-8-rhel7
+
+

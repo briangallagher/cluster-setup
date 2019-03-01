@@ -1,7 +1,9 @@
+There will be a project for generic cluster setup stuff, jenkins, nexus, namespaces etc:
+here for now:
+https://github.com/briangallagher/cluster-setup
+
 Keep the templates, pipeline and bash script in with the app code base
-
 Make the templates granular and generic for reuse and clean component model
-
 Bash scripts to set up Initial required OpenShift resources 
-
 Pipleline for pipeline stuff, CI/CD build, test, deploy, promote 
+

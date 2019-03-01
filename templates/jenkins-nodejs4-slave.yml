@@ -17,15 +17,15 @@ objects:
       role: jenkins-slave
     name: jenkins-agent
   data:
-    maven-template: |-
+    node4-template: |-
       <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
         <inheritFrom></inheritFrom>
-        <name>maven-slave</name>
+        <name>node4-slave</name>
         <privileged>false</privileged>
         <alwaysPullImage>false</alwaysPullImage>
         <instanceCap>2147483647</instanceCap>
         <idleMinutes>10</idleMinutes>
-        <label>maven-appdev</label>
+        <label>node4-appdev</label>
         <serviceAccount>jenkins</serviceAccount>
         <nodeSelector></nodeSelector>
         <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
