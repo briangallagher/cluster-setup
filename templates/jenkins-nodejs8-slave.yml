@@ -13,20 +13,20 @@ objects:
   kind: ConfigMap
   metadata:
     labels:
-      app: jenkins
+      app: nrjenkins
       role: jenkins-slave
-    name: jenkins-nodejs8-agent
+    name: nodejs8
   data:
     node8-template: |-
       <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
         <inheritFrom></inheritFrom>
-        <name>node8-slave</name>
+        <name>nodejs8</name>
         <privileged>false</privileged>
         <alwaysPullImage>false</alwaysPullImage>
         <instanceCap>2147483647</instanceCap>
         <idleMinutes>10</idleMinutes>
         <label>nodejs8</label>
-        <serviceAccount>jenkins</serviceAccount>
+        <serviceAccount>nrjenkins</serviceAccount>
         <nodeSelector></nodeSelector>
         <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
         <workspaceVolume class="org.csanchez.jenkins.plugins.kubernetes.volumes.workspace.EmptyDirWorkspaceVolume">

@@ -10,7 +10,7 @@ oc project $JENKINS_PROJECT
 
 # S2I method
 oc new-build jenkins:2~https://github.com/briangallagher/custom-jenkins.git --name=custom-jenkins -e GIT_SSL_NO_VERIFY=true -e OVERRIDE_PV_CONFIG_WITH_IMAGE_CONFIG=true -e OVERRIDE_PV_PLUGINS_WITH_IMAGE_PLUGINS=true -n $JENKINS_PROJECT
-oc new-app jenkins-persistent -p JENKINS_SERVICE_NAME=jenkins -p JENKINS_IMAGE_STREAM_TAG=custom-jenkins:latest -p NAMESPACE=$JENKINS_PROJECT -p MEMORY_LIMIT=4Gi -p VOLUME_CAPACITY=10Gi -n $JENKINS_PROJECT
+oc new-app jenkins-persistent -p JENKINS_SERVICE_NAME=nrjenkins -p JENKINS_IMAGE_STREAM_TAG=custom-jenkins:latest -p NAMESPACE=$JENKINS_PROJECT -p MEMORY_LIMIT=4Gi -p VOLUME_CAPACITY=10Gi -n $JENKINS_PROJECT
 
 
 # v3.11 may not be compatible with jenkins version - may need to look at v3.9
